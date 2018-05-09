@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
+  // constructor(props) {
+  //   super(props);
+  state = {value: ''};
 
-    this.onMessageChange = this.onMessageChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
+    // this.onMessageChange = this.onMessageChange.bind(this);
+    // this.onSubmit = this.onSubmit.bind(this);
+  // }
 
-  onMessageChange(event) {
+  onMessageChange = (event) => {
     this.setState({value: event.target.value});
   }
 
-  onSubmit(event) {
+  onSubmit = (event) => {
     event.preventDefault();
-    // console.log(this.state.value);
+    this.props.addStopWordsList(this.state.value);
     this.setState({value: ''});
-    return this.props.updateData(this.state.value);
   }
 
   render() {

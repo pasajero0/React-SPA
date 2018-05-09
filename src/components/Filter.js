@@ -1,34 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Filter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {arr: []};
-  }
-
-  getStopWords = () => {
+const Filter = ({
+  incomingMsgList,
+  stopWordsList,
+  setFormattedMsgList
+}) => {
+  const getStopWords = () => {
     // console.log('filter incomingMsg ',this.props.incomingMsgList);
     // console.log('filter stopWords ', this.props.stopWordsList);
 
-    const a = this.props.incomingMsgList.map((value) => {
-      const b = (this.props.stopWordsList.length)-1;
-      const c = value.text.toLowerCase().replace(this.props.stopWordsList[b], '***');
-      console.log('filter stopWords join ', this.props.stopWordsList.join(' '));
+    const stopWords = incomingMsgList.map((value, index) => value.text.toLowerCase().replace(stopWordsList[index], '***') );
+      // console.log('filter stopWords join ', stopWordsList.join(' '));
 
-      return c;
-    });
-      
- 
-    return this.props.updateArr(a);
+    return setFormattedMsgList(stopWords);
   }
 
-  render() {
-    return (
-      <div className='filter'>
-        <button type='button' onClick={this.getStopWords}>filter</button>
-      </div>
-    );
-  }
+  return (
+    <div className='filter'>
+      <button type='button' onClick={getStopWords}>filter</button>
+    </div>
+  );
 }
 
 export default Filter;
