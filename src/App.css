@@ -1,0 +1,87 @@
+.App {
+  display: grid;
+  grid-template-areas: 
+      "incoming stopWords outgoing"
+      "form form filter";
+  grid-auto-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 70px;
+  grid-column-gap: 3px;
+  grid-row-gap: 10px;
+  max-width:1200px;
+  margin: 0 auto;
+}
+.incoming, .stopWords, .outgoing{
+  width: 100%;
+  height: 87vh;
+}
+
+.incoming, .stopWords, .outgoing, form, .filter{
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 3px #919191;
+  overflow-y: auto;
+}
+.incoming p, .stopWords p, .outgoing p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.incoming{
+  grid-area: incoming;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.stopWords{
+  grid-area: stopWords;
+  border-radius: 0;
+
+}
+.outgoing{
+  grid-area: outgoing;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: filter;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+form{
+  grid-area: form;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+input, button {
+  display: block;
+  margin: 0 auto;
+  border: 0;
+  outline: none;
+}
+input{
+  border-bottom: 2px solid #e3e3e3;
+  font-size: 16px;
+  padding: 5px;
+  width: 80%;
+}
+input:focus {
+  border-bottom: 2px solid #5682a3;
+  transition: .3s;
+}
+
+button {
+  font-size: 25px;
+  color: lightgray;
+  background: none;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #5682a3;
+  transition: .3s;
+}
