@@ -1,18 +1,27 @@
 import React from 'react';
 
+let filtredArr = []
+// переписать !
 const Filter = ({
   incomingMsgList,
   stopWordsList,
   setFormattedMsgList
 }) => {
   const getStopWords = () => {
-    // console.log('filter incomingMsg ',this.props.incomingMsgList);
-    // console.log('filter stopWords ', this.props.stopWordsList);
 
-    const stopWords = incomingMsgList.map((value, index) => value.text.toLowerCase().replace(stopWordsList[index], '***') );
-      // console.log('filter stopWords join ', stopWordsList.join(' '));
-
-    return setFormattedMsgList(stopWords);
+    stopWordsList.map( (value) => {
+      if (filtredArr.length == 0 ) {
+        incomingMsgList.map(val => {
+          filtredArr.push(val.text.toLowerCase().replace(value, '***'));
+        })
+      } else {
+        let a = filtredArr.map(val => {
+          return val.replace(value, '***');
+        });
+        filtredArr = a;
+      }
+    });
+    return setFormattedMsgList(filtredArr);
   }
 
   return (

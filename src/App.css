@@ -1,8 +1,8 @@
 .App {
   display: grid;
   grid-template-areas: 
-      "incoming stopWords outgoing"
-      "form form filter";
+    "incoming stopWords outgoing"
+    "form form filter";
   grid-auto-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 70px;
   grid-column-gap: 3px;

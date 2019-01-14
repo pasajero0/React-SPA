@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 
 class Form extends Component {
-  // constructor(props) {
-  //   super(props);
   state = {value: ''};
-
-    // this.onMessageChange = this.onMessageChange.bind(this);
-    // this.onSubmit = this.onSubmit.bind(this);
-  // }
 
   onMessageChange = (event) => {
     this.setState({value: event.target.value});
