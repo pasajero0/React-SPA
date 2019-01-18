@@ -5,7 +5,7 @@ import stopWordsList from './JSON_2.json';
 import Form from './components/Form.js';
 import Filter from './components/Filter.js';
 
-let newStopWordsList = [...stopWordsList];
+// let newStopWordsList = [...stopWordsList];
 
 class App extends Component {
   state = {
@@ -14,10 +14,18 @@ class App extends Component {
     formattedMsgList: [],
   };
 
+  // addStopWordsList = (value) => {
+  //   if ( !value.length == 0 ) {
+  //     newStopWordsList.push(value.toLowerCase());
+  //     this.setState({ stopWordsList: newStopWordsList });
+  //   } else {
+  //     console.log('input is empty');
+  //   }
+  // }
+
   addStopWordsList = (value) => {
-    if ( !value.length == 0 ) {
-      newStopWordsList.push(value.toLowerCase());
-      this.setState({ stopWordsList: newStopWordsList });
+    if ( value.length ) {
+      this.setState({ stopWordsList: [ ...this.state.stopWordsList, value.toLowerCase() ] });
     } else {
       console.log('input is empty');
     }
