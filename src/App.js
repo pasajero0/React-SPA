@@ -14,33 +14,32 @@ class App extends Component {
     formattedMsgList: [],
   };
 
-addStopWordsList = (value) => {
-  // console.log(value)
-  // console.log(value.length)
-  if ( !value.length == 0 ) {
-    newStopWordsList.push(value);
-    this.setState({ stopWordsList: newStopWordsList });
-  } else {
-    console.log('input is empty');
+  addStopWordsList = (value) => {
+    if ( !value.length == 0 ) {
+      newStopWordsList.push(value.toLowerCase());
+      this.setState({ stopWordsList: newStopWordsList });
+    } else {
+      console.log('input is empty');
+    }
   }
-}
 
+  setFormattedMsgList = (formattedMsgList) => this.setState({ formattedMsgList });
 
-setFormattedMsgList = (formattedMsgList) => this.setState({ formattedMsgList });
+  stopWordsListFunc = () => {
+    const { stopWordsList } = this.state;
+    return stopWordsList.map((value, index) => < p key = { index } > { value } </p> );
+  }
 
-stopWordsListFunc = () => {
-  const { stopWordsList } = this.state;
-  return stopWordsList.map((value, index) => < p key = { index } > { value } </p> );
-}
+  getFormattedMsg = (val) => {
+    const { formattedMsgList } = this.state;
+    return formattedMsgList.map((value, index) => {
+      return < p key = { index } > { value.charAt(0).toUpperCase() + value.slice(1) } < /p>
+    });
+  }
 
-getFormattedMsg = (val) => {
-const { formattedMsgList } = this.state;
-return formattedMsgList.map((value, index) => < p key = { index } > { value } < /p>);
-}
-
-getIncomingMsg = () => {
-  const { incomingMsgList } = this.state;
-  return incomingMsgList.map((value, index) => < p key = { index } > { value.text } </p>)
+  getIncomingMsg = () => {
+    const { incomingMsgList } = this.state;
+    return incomingMsgList.map((value, index) => < p key = { index } > { value.text } </p>)
   }
 
   render() {

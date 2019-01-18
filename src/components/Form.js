@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 class Form extends Component {
   state = {value: ''};
 
-  onMessageChange = (event) => {
+  onMessageChange = event => {
     this.setState({value: event.target.value});
   }
 
-  onSubmit = (event) => {
+  onSubmit = event => {
     event.preventDefault();
     this.props.addStopWordsList(this.state.value);
     this.setState({value: ''});

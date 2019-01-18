@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 let filtredArr = []
-// переписать !
-const Filter = ({
-  incomingMsgList,
-  stopWordsList,
-  setFormattedMsgList
-}) => {
-  const getStopWords = () => {
+
+class Filter extends Component {
+
+  getStopWords = () => {
+    const {stopWordsList} = this.props;
+    const {incomingMsgList} = this.props;
+    const {setFormattedMsgList} = this.props;
 
     stopWordsList.map( (value) => {
       if (filtredArr.length == 0 ) {
@@ -15,20 +15,22 @@ const Filter = ({
           filtredArr.push(val.text.toLowerCase().replace(value, '***'));
         })
       } else {
-        let a = filtredArr.map(val => {
+        let newFiltredArr = filtredArr.map(val => {
           return val.replace(value, '***');
         });
-        filtredArr = a;
+        filtredArr = newFiltredArr;
       }
     });
     return setFormattedMsgList(filtredArr);
   }
 
-  return (
-    <div className='filter'>
-      <button type='button' onClick={getStopWords}>filter</button>
-    </div>
-  );
-}
+  render() {
+    return (
+      <div className='filter'>
+        <button type='button' onClick={this.getStopWords}>filter</button>
+      </div>
+    )
+  };
+};
 
 export default Filter;

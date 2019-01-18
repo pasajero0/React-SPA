@@ -12,7 +12,7 @@
 }
 .incoming, .stopWords, .outgoing{
   width: 100%;
-  height: 87vh;
+  height: 80vh;
 }
 
 .incoming, .stopWords, .outgoing, form, .filter{
