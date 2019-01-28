@@ -4,7 +4,7 @@ class Form extends Component {
   state = {value: ''};
 
   onMessageChange = event => {
-    this.setState({value: event.target.value});
+    this.setState({value: event.target.value.trim().replace(/[.,\s]/g, '')});
   }
 
   onSubmit = event => {
@@ -16,7 +16,7 @@ class Form extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <input type="text" value={this.state.value} onChange={this.onMessageChange} placeholder="Write a message..."/>
+        <input type="text" value={this.state.value} onChange={this.onMessageChange} placeholder="Write a word..."/>
         <button type="submit" value="Submit">send</button>
       </form>
     );
