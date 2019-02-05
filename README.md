@@ -1,3 +1,9 @@
+﻿# Message Filter
+## How to start?
+* **`npm i`** - install modules
+
+* **`npm start`** - launch SPA
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
